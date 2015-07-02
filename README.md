@@ -149,7 +149,7 @@ This assumes you have the following route
 get "/account", to: "store_owners#show"
 ```
 
-with a `show` method that looks something like th following.
+with a `show` method that looks something like the following.
 
 
 
@@ -169,7 +169,7 @@ end
 This just glorified version of the `users#show` that we've worked with the whole class.
 
 
-You can then display the user information on the in the `show.html.erb`.
+You can then display the user information in the `show.html.erb`.
 
 
 ```html
@@ -184,7 +184,7 @@ You can then display the user information on the in the `show.html.erb`.
 
 ## Pitfalls: 422 Unprocessible
 
-If you're going to be posting and patching to the rails server you'll need a csrf param. Angular has to be congifured to send this with a request.
+If you're going to be posting and patching to the rails server you'll need a CSRF param. Angular has to be configured to send this with on every request.
 
 `application.js`
 
