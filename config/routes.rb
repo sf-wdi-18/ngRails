@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'api_tokens/create'
+
   root 'site#index'
 
   get '/signup', to: 'stores#new', as: 'signup'
