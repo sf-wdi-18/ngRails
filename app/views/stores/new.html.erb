@@ -1,0 +1,74 @@
+<% if @errors %>
+  <p>Fix these problems with your registration:</p>
+  <ul>
+    <% @errors.each do |error, mesg| %>
+      <li><%= error %>: <%= mesg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class='col-md-6'>
+  <div class='well'>
+    <div class='row'>
+      <div class='col-md-4 text-right'>
+        <h3>New Store</h3>
+      </div>
+    </div>
+    <br>
+    <%= form_for(@store) do |f| %>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= f.label "Name: " %>
+        </div>
+        <div class='col-md-7'>
+          <%= f.text_field(:name, { autofocus: "true" }) %>
+        </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= f.label "Email: " %>
+        </div>
+        <div class='col-md-7'>
+          <%= f.text_field(:email) %>
+        </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= f.label "Confirm email: " %>
+        </div>
+        <div class='col-md-7'>
+          <%= f.text_field(:email_confirmation) %>
+        </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= f.label "Password: " %>
+        </div>
+        <div class='col-md-7'>
+          <%= f.password_field(:password) %>
+        </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= f.label "Confirm password: " %>
+        </div>
+        <div class='col-md-7'>
+          <%= f.password_field(:password_confirmation) %>
+        </div>
+      </div>
+      <br><br>
+      <div class='row'>
+        <div class='col-md-11 text-right'>
+          <%= f.submit("Sign up", class: "btn btn-lg btn-primary") %>
+          <br><br>
+          <p>Already registered?&nbsp&nbsp<span><%= link_to('Login here', login_path) %></span></p>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>    <!-- well -->
+</div>

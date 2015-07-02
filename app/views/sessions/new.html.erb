@@ -1,0 +1,38 @@
+<div class='col-md-6'>
+  <div class='well'>
+    <div class='row'>
+      <div class='col-md-4 text-right'>
+        <h3>Login</h3>
+      </div>
+    </div>
+    <br>
+    <%= form_tag(sessions_path) do %>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= label_tag(:email) %>
+        </div>
+        <div class='col-md-7'>
+          <%= text_field_tag(:email) %>
+        </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-4 text-right'>
+          <%= label_tag "Password: " %>
+        </div>
+        <div class='col-md-7'>
+          <%= text_field_tag(:password, nil, type: "password") %>
+        </div>
+      </div>
+      <br><br>
+      <div class='row'>
+        <div class='col-md-11 text-right'>
+          <%= submit_tag("Login", class: "btn btn-lg btn-primary") %>
+          <br><br>
+          <p>Not registered?&nbsp&nbsp<span><%= link_to('Sign up here', signup_path) %></span></p>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
