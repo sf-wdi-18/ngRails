@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'api_tokens/create'
-
   root 'site#index'
 
   get '/signup', to: 'stores#new', as: 'signup'
@@ -12,5 +10,8 @@ Rails.application.routes.draw do
   post '/stores', to: 'stores#create'
 
   get '/account/:id', to: 'stores#show', as: 'account'
+
+  get '/receipts', to: 'receipts#show', as: 'receipts'
+  post '/receipts', to: 'receipts#create'
 
 end

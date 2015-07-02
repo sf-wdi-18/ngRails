@@ -7,8 +7,8 @@ class Store < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, confirmation: true
 
   # associations
+  has_many :receipts, dependent: :destroy
   has_one :api_token, dependent: :destroy
-  # has_many :receipts
 
   # returns store or false
   def self.confirm(params)
