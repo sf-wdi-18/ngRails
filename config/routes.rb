@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   post '/stores', to: 'stores#create'
 
-  get '/store/:id', to: 'stores#show', as: 'account'
-  get '/store/:id/edit', to: 'stores#edit', as: 'edit_account'
+  get '/account/:id', to: 'stores#show', as: 'account'
 
 end

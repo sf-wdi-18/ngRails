@@ -1,19 +1,17 @@
 class StoresController < ApplicationController
 
   #
-  # GET /store/new
+  # GET /signup
   #
   def new
     @store = Store.new
   end
 
   #
-  # GET /store/:id
+  # GET /account/:id
   #
   def show
-  end
-
-  def edit
+    @store = Store.find params[:id]
   end
 
   #
@@ -29,18 +27,6 @@ class StoresController < ApplicationController
       @errors = @store.errors.messages
       render :new
     end
-  end
-
-  #
-  # PUT /stores/:id
-  #
-  def update
-  end
-
-  #
-  # DELETE /stores/:id
-  #
-  def destroy
   end
 
   private

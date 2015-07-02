@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       # email and password entered, ok
       if Store.find_by(email:params[:email])
         # found a user, ok
-        @store = Store.confirm({email:params[:email], password:params[:password]})
+        @store = Store.confirm(email:params[:email], password:params[:password])
         if @store
           # user authorized, ok
           login @store
@@ -41,12 +41,6 @@ class SessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:email, :password)
   end
 
 end
