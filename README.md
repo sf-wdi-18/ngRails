@@ -17,7 +17,7 @@ User can...
 * See the new `simple_receipt` added to the page.
 * See how many receipts were created today -- "easy/medium depending on approach".
 * Delete a receipt without page reload -- "medium".
-* Click a receipt and see a model to edit and update  it without changing views -- "medium/difficult".
+* Click a receipt and see a modal to edit and update  it without changing views -- "medium/difficult".
 * See a dashboard of their profile information. User can edit profile details without page reload via modal -- "medium/difficult".
 * See how see a total from all receipts for the day -- "easy/medium/hard depending on your approach".
 
