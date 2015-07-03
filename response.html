@@ -1,0 +1,76 @@
+JSON::ParserError at /receipts
+==============================
+
+> 795: unexpected token at '{  'customer_info': {                    'first_name': 'Jane',                    'last_name': 'Doe',                    'member_id': 'xxxx'                  },  'items': [              {                'sku': 'ABC123',                'description': 'Super Computer',                'upc': '012345678901',                'serial_number': '123ABC123',                'price': '1000.00',                'taxcode': 'A'              },              {                'sku': 'CDE456',                'description': 't-shirt',                'upc': '222333222333',                'price': '12.00',                'qty': '4',                'taxcode': 'A'              },              {                'plu': '4135'                'description': 'Gala Apples',                'weight': '4.1 lb',                'rate': '1.00 / 1 lb',                'price': '4.10',                'taxcode': 'B'              },              {                'description': 'soda can',                'price': '1.00',                'taxcode': 'A'              }           ],  'subtotal': '1017.10',  'taxes': '81.04',  'total': '1098.14',  'payment_method': 'CARD ENDING in XXXX',  'tender_amount': '1098.14',  'change_due': '0.00',  'transaction_number': 'XXXXX',  'item_count': '7'}'
+
+json (1.8.3) lib/json/common.rb, line 155
+-----------------------------------------
+
+``` ruby
+  150     #   additions even if a matching class and create_id was found. This option
+  151     #   defaults to false.
+  152     # * *object_class*: Defaults to Hash
+  153     # * *array_class*: Defaults to Array
+  154     def parse(source, opts = {})
+> 155       Parser.new(source, opts).parse
+  156     end
+  157   
+  158     # Parse the JSON document _source_ into a Ruby data structure and return it.
+  159     # The bang version of the parse method defaults to the more dangerous values
+  160     # for the _opts_ hash, so be sure only to parse trusted _source_ documents.
+```
+
+App backtrace
+-------------
+
+
+
+Full backtrace
+--------------
+
+ - json (1.8.3) lib/json/common.rb:155:in `parse'
+ - activesupport (4.2.1) lib/active_support/json/decoding.rb:26:in `decode'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:44:in `parse_formatted_parameters'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+ - rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+ - rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+ - activerecord (4.2.1) lib/active_record/query_cache.rb:36:in `call'
+ - activerecord (4.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+ - activerecord (4.2.1) lib/active_record/migration.rb:378:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+ - activesupport (4.2.1) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+ - activesupport (4.2.1) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+ - activesupport (4.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+ - better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+ - better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+ - better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+ - web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+ - railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+ - railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+ - activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+ - activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+ - activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+ - railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+ - rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+ - rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+ - activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+ - rack (1.6.4) lib/rack/lock.rb:17:in `call'
+ - actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+ - rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+ - railties (4.2.1) lib/rails/engine.rb:518:in `call'
+ - railties (4.2.1) lib/rails/application.rb:164:in `call'
+ - rack (1.6.4) lib/rack/lock.rb:17:in `call'
+ - rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+ - rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+ - /Users/Wilson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+ - /Users/Wilson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+ - /Users/Wilson/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
