@@ -60,15 +60,14 @@
           <%= f.password_field(:password_confirmation) %>
         </div>
       </div>
-      <br><br>
+      <br>
       <div class='row'>
         <div class='col-md-11 text-right'>
-          <%= f.submit("Sign up", class: "btn btn-lg btn-primary") %>
+          <%= f.submit("Sign up", class: "btn btn-primary") %>
           <br><br>
-          <p>Already registered?&nbsp&nbsp<span><%= link_to('Login here', login_path) %></span></p>
+          <p>Already registered?&nbsp&nbsp<span><%= link_to('Log in here', login_path) %></span></p>
         </div>
       </div>
-      <br>
     <% end %>
   </div>    <!-- well -->
 </div>

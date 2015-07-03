@@ -29,6 +29,11 @@ class StoresController < ApplicationController
     end
   end
 
+  def passwd_reset
+    # can only get here through login form
+    # can't go here if logged in
+  end
+
   private
 
   def store_params
