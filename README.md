@@ -5,13 +5,17 @@ If no .format is specified in the request URL, response format will be dicatated
     in receipts_controller.rb (if both :json and :html are present)
 
 GET
-curl -i -H "Accept:application/json" localhost:3000/receipts\?api_token="..."
+curl -i \
+     -H "Accept:application/json" \
+     localhost:3000/receipts\?api_token="..." \
+     > response.json && open response.json
 
 POST (see test/data.json)
 curl -i \
      -H "Content-Type:application/json" \
      -H "Accept:application/json" \
      -d @data.json \
-     localhost:3000/receipts\?api_token="..."
+     localhost:3000/receipts\?api_token="..." \
+     > response.json && open response.json
 
 

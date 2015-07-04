@@ -9,11 +9,15 @@ module SessionsHelper
     @current_store ||= Store.find_by_id(session[:store_id])
   end
 
-  # def logged_in?
-  #   if current_user == nil
-  #     redirect_to login_path
-  #   end
-  # end
+  def logged_in?
+    !current_store.nil?
+  end
+
+  def require_login
+    if !logged_in?
+      redirect_to "/login"
+    end
+  end
 
   def logout
     @current_store = session[:store_id] = nil

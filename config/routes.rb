@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   # this route is necessary for using respond_with
   get '/receipt/:id', to: 'receipts#show', as: 'receipt'
 
+  get '/passwd_reset', to: 'stores#passwd_reset', as: 'passwd_reset'
+
 end

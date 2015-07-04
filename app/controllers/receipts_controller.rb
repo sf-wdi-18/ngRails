@@ -1,6 +1,6 @@
 class ReceiptsController < ApplicationController
 
-  before_action :validate_api_token, only: [:show, :create]
+  before_action :validate_api_token
 
   respond_to :html, :json
 
@@ -51,6 +51,8 @@ class ReceiptsController < ApplicationController
 
   def receipt_params
     # permit all receipt attributes
+    # maybe not secure, but not typing everying out
+    # TODO: a better way?
     params.require(:receipt).permit!
   end
 

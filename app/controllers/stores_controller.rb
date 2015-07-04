@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
 
+  before_action :require_login, only: [:show]
+
   #
   # GET /signup
   #
@@ -40,7 +42,7 @@ class StoresController < ApplicationController
   end
 
   def assign_api_token store
-    # not worrying about handling uniqueness validation failure
+    # TODO: handle uniqueness validation failure
     @api_token = ApiToken.create(store_id:store.id, hex_value:SecureRandom.hex)
   end
 
