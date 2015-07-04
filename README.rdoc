@@ -1,6 +1,17 @@
 
+If no .format is specified in the request URL, response format will be dicatated by:
+1 - Presence/absence of Accept header
+2 - If no Accept header, ordering of formats in call to respond_to
+    in receipts_controller.rb (if both :json and :html are present)
+
 GET
-curl localhost:3000/receipts\?api_token="..."
+curl -i -H "Accept:application/json" localhost:3000/receipts\?api_token="..."
 
 POST (see test/data.json)
-curl -H "Content-Type=application/json" -d @data.json localhost:3000/receipts\?api_token="..."
+curl -i \
+     -H "Content-Type:application/json" \
+     -H "Accept:application/json" \
+     -d @data.json \
+     localhost:3000/receipts\?api_token="..."
+
+

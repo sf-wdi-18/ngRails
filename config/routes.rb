@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/receipts', to: 'receipts#show', as: 'receipts'
   post '/receipts', to: 'receipts#create'
 
-  get '/passwd_reset', to: 'stores#passwd_reset', as: 'passwd_reset'
+  # this route is necessary for using respond_with
+  get '/receipt/:id', to: 'receipts#show', as: 'receipt'
 
 end

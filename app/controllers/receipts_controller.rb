@@ -1,29 +1,45 @@
 class ReceiptsController < ApplicationController
 
   before_action :validate_api_token, only: [:show, :create]
-  respond_to :html, :JSON
+
+  respond_to :html, :json
 
   #
-  # GET /receipts
+  # GET /receipts.json
   #
   def show
     if @api_token
       @receipts = @api_token.store.receipts
       respond_with @receipts
     else
-      # no token exists
-      render :show
+      # unauthorized
+      render json: { status:"error",
+                       mesg:"Invalid API token" }, status: 401
     end
   end
 
   #
-  # POST /receipts
+  # POST /receipts.json
   #
   def create
     if @api_token
       @receipt = Receipt.create receipt_params
+      # Make sure there's a receipt_path in routes.rb
+      # The responder will look for a receipt_path even though it's
+      # not actually redirecting (as in the case of JSON response)
       respond_with @receipt
+      # equivalent to:
+      # respond_to do |format|
+      #   if @receipt.save
+      #     format.json { render json: @receipt, location: receipt_path }
+      #   else
+      #     format.json { render json: @receipt.errors, status: :unprocessable_entity }
+      #   end
+      # end
     else
+      # unauthorized
+      render json: { status:"error",
+                       mesg:"Invalid API token" }, status: 401
     end
   end
 

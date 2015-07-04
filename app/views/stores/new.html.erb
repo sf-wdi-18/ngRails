@@ -1,12 +1,3 @@
-<% if @errors %>
-  <p>Fix these problems with your registration:</p>
-  <ul>
-    <% @errors.each do |error, mesg| %>
-      <li><%= error %>: <%= mesg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <div class='col-md-6'>
   <div class='well'>
     <div class='row'>
@@ -16,6 +7,20 @@
     </div>
     <br>
     <%= form_for(@store) do |f| %>
+      <div class='row'>
+        <div class='col-md-11 col-md-offset-1'>
+          <% if @store.errors.any? %>
+            <p>Please fix the following
+              <%= pluralize(@store.errors.count, "error") %>
+              with your registration: </p>
+            <ul>
+              <% @store.errors.full_messages.each do |mesg| %>
+                <li><%= mesg %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div><br>
       <div class='row'>
         <div class='col-md-4 text-right'>
           <%= f.label "Name: " %>
@@ -69,5 +74,5 @@
         </div>
       </div>
     <% end %>
-  </div>    <!-- well -->
+  </div>
 </div>

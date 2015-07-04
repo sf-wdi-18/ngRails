@@ -24,7 +24,6 @@ class StoresController < ApplicationController
       login @store
       redirect_to account_path @store
     else
-      @errors = @store.errors.messages
       render :new
     end
   end
@@ -41,7 +40,7 @@ class StoresController < ApplicationController
   end
 
   def assign_api_token store
-    # not worrying about checking hex_value uniqueness validation
+    # not worrying about handling uniqueness validation failure
     @api_token = ApiToken.create(store_id:store.id, hex_value:SecureRandom.hex)
   end
 

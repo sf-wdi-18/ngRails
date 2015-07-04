@@ -1,0 +1,32 @@
+<div class='col-md-5'>
+  <div class='well'>
+    <div class='row'>
+      <div class='col-md-7 text-right'>
+        <h3>Reset Password</h3>
+      </div>
+    </div>
+    <br>
+    <%= form_tag(sessions_path) do %>
+      <div class='row'>
+        <div class='col-md-3 text-right'>
+          <%= label_tag(:email) %>
+        </div>
+        <div class='col-md-8'>
+          <%= text_field_tag(:email) %>
+        </div>
+      </div>
+      <br>
+      <div class='row'>
+        <div class='col-md-11 text-right'>
+          <%= submit_tag("Submit", class: "btn btn-primary") %>
+          <br><br>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-11 text-right'>
+          <%= link_to('Sign up', signup_path) %> | <%= link_to('Log in', login_path) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
