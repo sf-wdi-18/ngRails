@@ -195,7 +195,7 @@ var AccountApp = angular.module("AccountApp", [])
 // just add this!! 
 AccountApp.config(["$httpProvider", function ($httpProvider) {
 	$httpProvider.
-		defaults.headers.common["X-CSRF"] = $("meta[name=csrf-token]").attr("content");
+		defaults.headers.common["X-CSRF-Token"] = $("meta[name=csrf-token]").attr("content");
 }])
 
 AccountApp.controller("MainCtrl", function ($scope, $http) {
